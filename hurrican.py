@@ -35,6 +35,8 @@ def damage(lst):
             new.append(y)
     return new
 
+new_damage = damage(damages)
+
 # write your construct hurricane dictionary function here:
 
 def dict(names, years, max_sustained_winds, areas_affected, damages, deaths):
@@ -44,7 +46,7 @@ def dict(names, years, max_sustained_winds, areas_affected, damages, deaths):
         dict.update(newdict)
     return dict
 
-hurdict = dict(names, years, max_sustained_winds, areas_affected, damages, deaths)
+hurdict = dict(names, years, max_sustained_winds, areas_affected, new_damage, deaths)
 
 # write your construct hurricane by year dictionary function here:
 def yeardict(dict):
@@ -80,17 +82,21 @@ def area_count(areas):
         area_dict.update(new)
     return area_dict
 
-
 area_dict = area_count(areas_affected)
 
-
 # write your find most affected area function here:
+def most_often(areas):
+    biggest = 0
+    big = {}
+    for i in areas:
+        num = areas[i]
+        if num > biggest:
+            biggest = num
+            new = {i:num}
+    big.update(new)
+    return big
 
-
-
-
-
-
+most_often = most_often(area_dict)
 
 # write your greatest number of deaths function here:
 
