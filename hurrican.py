@@ -99,12 +99,29 @@ def most_often(areas):
 most_often = most_often(area_dict)
 
 # write your greatest number of deaths function here:
+def dict2(names, deaths):
+    dict ={}
+    for i in range(0,33):
+        newdict = {names[i]: deaths[i]}
+        dict.update(newdict)
+    return dict
 
+deathdict = dict2(names, deaths)
 
+def most_deaths(dict):
+    highest = 1
+    high = {}
+    for i in dict:
+        x = dict[i]
+        if x > highest:
+            highest = x
+            newd = {i:x}
+    high.update(newd)
+    return high
 
+most_deaths = most_deaths(deathdict)
 
-
-
+print(most_deaths)
 
 # write your catgeorize by mortality function here:
 
