@@ -39,14 +39,14 @@ new_damage = damage(damages)
 
 # write your construct hurricane dictionary function here:
 
-def dict(names, years, max_sustained_winds, areas_affected, damages, deaths):
+def newdict(names, years, max_sustained_winds, areas_affected, damages, deaths):
     dict ={}
-    for i in range(0,33):
+    for i in range(0,34):
         newdict = {names[i]: {'Name': names[i], 'Year': years[i], 'Max Sustained Winds': max_sustained_winds[i], 'Areas Affected': areas_affected[i], 'Damages': damages[i], 'Deaths': deaths[i]}}
         dict.update(newdict)
     return dict
 
-hurdict = dict(names, years, max_sustained_winds, areas_affected, new_damage, deaths)
+hurdict = newdict(names, years, max_sustained_winds, areas_affected, new_damage, deaths)
 
 # write your construct hurricane by year dictionary function here:
 def yeardict(dict):
@@ -101,7 +101,7 @@ most_often = most_often(area_dict)
 # write your greatest number of deaths function here:
 def dict2(names, deaths):
     dict ={}
-    for i in range(0,33):
+    for i in range(0,34):
         newdict = {names[i]: deaths[i]}
         dict.update(newdict)
     return dict
@@ -122,16 +122,26 @@ def most_deaths(dict):
 most_deaths = most_deaths(deathdict)
 
 # write your catgeorize by mortality function here:
-mortality_scale = {0: 0,
-                   1: 100,
-                   2: 500,
-                   3: 1000,
-                   4: 10000}
 
 def mortality(dict):
-    pass
+    mort = {}
+    for i in dict:
+        x = dict[i]
+        if x >= 10000:
+            mortal = 4
+        elif x > 1000:
+            mortal = 3
+        elif x > 500:
+            mortal = 2
+        elif x > 0:
+            mortal = 1
+        else:
+            moral = 0
+        newmor = {i : mortal}
+        mort.update(newmor)
+    return mort
 
-
+print(mortality(deathdict))
 
 
 # write your greatest damage function here:
