@@ -58,10 +58,10 @@ def yeardict(dict):
     for i in dict:
         x = dict[i].get('Year')
         years.append(x)
-    for key in keys:
-        for year in years:
-            newdict = {year: dict[key]}
-            ydict.update(newdict)
+    yklst = list(zip(years, keys))
+    for a in yklst:
+        ydict.setdefault(a[0], [])
+        ydict[a[0]].append(dict[a[1]])
     return ydict
 
 yeardict = yeardict(hurdict)
@@ -92,7 +92,7 @@ def most_often(areas):
         num = areas[i]
         if num > biggest:
             biggest = num
-            new = {i:num}
+            new = {i: num}
     big.update(new)
     return big
 
@@ -115,18 +115,21 @@ def most_deaths(dict):
         x = dict[i]
         if x > highest:
             highest = x
-            newd = {i:x}
+            newd = {i: x}
     high.update(newd)
     return high
 
 most_deaths = most_deaths(deathdict)
 
-print(most_deaths)
-
 # write your catgeorize by mortality function here:
+mortality_scale = {0: 0,
+                   1: 100,
+                   2: 500,
+                   3: 1000,
+                   4: 10000}
 
-
-
+def mortality(dict):
+    pass
 
 
 
